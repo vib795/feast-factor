@@ -129,8 +129,8 @@ const MacroCalculator = () => {
   return (
     <div className="min-h-screen bg-black py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md mx-auto bg-white rounded-3xl shadow-lg overflow-hidden p-8">
-        <h1 className="text-2xl font-bold text-black text-center mb-2">Macro Calculator</h1>
-        <p className="text-center text-black mb-6">Calculate your daily macros for your fitness goals</p>
+        <h1 className="text-3xl font-bold text-black text-center mb-2">Daily Macro Calculator</h1>
+        <p className="text-center text-black mb-6 text-xl">Calculate your daily macros for your fitness goals</p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Weight Input */}
@@ -309,7 +309,7 @@ const MacroCalculator = () => {
 
           <button
             type="submit"
-            className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none"
+            className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md text-3 font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none"
           >
             Calculate Macros
           </button>
