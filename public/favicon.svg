@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background circle -->
+    <circle cx="16" cy="16" r="16" fill="#4F46E5"/>
+    
+    <!-- Dumbbell design -->
+    <!-- Main plates -->
+    <rect x="8" y="12" width="2" height="8" fill="white"/>
+    <rect x="22" y="12" width="2" height="8" fill="white"/>
+    
+    <!-- Bar -->
+    <rect x="10" y="15" width="12" height="2" fill="white"/>
+    
+    <!-- Small plates -->
+    <rect x="6" y="14" width="1" height="4" fill="white"/>
+    <rect x="25" y="14" width="1" height="4" fill="white"/>
+</svg>
