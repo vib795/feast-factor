@@ -144,14 +144,14 @@ const MacroCalculator = () => {
                 value={formData.weight}
                 onChange={handleInputChange}
                 required
-                className={`${inputClassName} rounded-l-md`}
+                className={`${inputClassName} rounded-l-md bg-white`}
                 placeholder="Enter your weight"
               />
               <select
                 name="weightUnit"
                 value={formData.weightUnit}
                 onChange={handleInputChange}
-                className="inline-flex items-center px-3 py-2 rounded-r-md border border-l-0 border-gray-300 bg-[#F8F9FF] text-black"
+                className="inline-flex items-center px-3 py-2 rounded-r-md border border-l-0 border-gray-300 text-black"
               >
                 <option value="kg">kg</option>
                 <option value="lbs">lbs</option>
