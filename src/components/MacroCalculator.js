@@ -97,10 +97,10 @@ const MacroCalculator = () => {
   
   const [result, setResult] = useState(null);
 
-    if (formData.proteinPct + formData.carbsPct + formData.fatPct !== 100) {
-        alert('Macro percentages must add up to 100%');
-        return;
-    }
+    // if (formData.proteinPct + formData.carbsPct + formData.fatPct !== 100) {
+    //     alert('Macro percentages must add up to 100%');
+    //     return;
+    // }
 
     const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -153,8 +153,8 @@ const MacroCalculator = () => {
                 onChange={handleInputChange}
                 className="inline-flex items-center px-3 py-2 rounded-r-md border border-l-0 border-gray-300 text-black"
               >
-                <option value="kg">kg</option>
                 <option value="lbs">lbs</option>
+                <option value="kg">kg</option>
               </select>
             </div>
           </div>
