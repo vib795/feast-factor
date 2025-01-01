@@ -103,15 +103,48 @@ const MacroCalculator = () => {
     // }
 
     const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+      const { name, value } = e.target;
+      
+      // Update the form data
+      setFormData(prev => {
+        const newData = {
+          ...prev,
+          [name]: value
+        };
+    
+        // If changing any percentage field, validate the total
+        if (name.endsWith('Pct')) {
+          const total = Number(name === 'proteinPct' ? value : newData.proteinPct) +
+                       Number(name === 'carbsPct' ? value : newData.carbsPct) +
+                       Number(name === 'fatPct' ? value : newData.fatPct);
+    
+          // Optional: You could show a warning message here
+          const warningElement = document.getElementById('macro-warning');
+          if (warningElement) {
+            warningElement.textContent = total > 100 ? 
+              `Total is ${total}%. Please adjust to equal 100%.` : 
+              total < 100 ? 
+                `Total is ${total}%. Please adjust to equal 100%.` : 
+                '';
+          }
+        }
+    
+        return newData;
+      });
+    };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+  
+    // Convert percentages to numbers and sum them
+    const totalPct = Number(formData.proteinPct) + Number(formData.carbsPct) + Number(formData.fatPct);
+    
+    // Check if total is exactly 100
+    if (totalPct !== 100) {
+      alert(`Your macro split percentages total ${totalPct}%. They must add up to exactly 100%.`);
+      return;
+    }
+  
     const macros = calculateMacros(formData);
     setResult(macros);
   };
@@ -153,8 +186,8 @@ const MacroCalculator = () => {
                 onChange={handleInputChange}
                 className="inline-flex items-center px-3 py-2 rounded-r-md border border-l-0 border-gray-300 text-black"
               >
-                <option value="lbs">lbs</option>
                 <option value="kg">kg</option>
+                <option value="lbs">lbs</option>
               </select>
             </div>
           </div>
@@ -302,6 +335,7 @@ const MacroCalculator = () => {
                 />
               </div>
             </div>
+            <p id="macro-warning" className="mt-2 text-sm text-red-600"></p>
             <p className="mt-2 text-sm text-gray-600">
               Recommended split for weight loss: 40% protein, 40% carbs, 20% fat. Higher protein helps preserve muscle mass while in a caloric deficit.
             </p>
