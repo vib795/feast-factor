@@ -162,6 +162,7 @@ const MacroCalculator = () => {
 
   return (
     <div className="min-h-screen bg-black py-12 px-4 sm:px-6 lg:px-8">
+      <Analytics />
       <div className="max-w-md mx-auto bg-white rounded-3xl shadow-lg overflow-hidden p-8">
         <h1 className="text-3xl font-bold text-black text-center mb-2">Daily Macro Calculator</h1>
         <p className="text-center text-black mb-6 text-xl">Calculate your daily macros for your fitness goals</p>
