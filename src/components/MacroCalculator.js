@@ -381,6 +381,15 @@ const MacroCalculator = () => {
             </div>
           </div>
         )}
+        <div className="mt-4 text-center">
+          <button 
+            type="button"
+            onClick={() => alert("DISCLAIMER: This calculator is for informational purposes only. The information provided is not medical advice and should not be used as a substitute for professional medical guidance. Always consult with a healthcare provider or registered dietitian before starting any diet or exercise program. By using this calculator, you acknowledge that the creator assumes no responsibility or liability for any consequences resulting from the use of this tool.")}
+            className="text-sm text-purple-600 hover:text-purple-800 underline cursor-pointer"
+          >
+            View Disclaimer
+          </button>
+        </div>
       </div>
     </div>
   );
