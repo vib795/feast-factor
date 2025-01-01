@@ -92,7 +92,7 @@ macro-calculator
 │   └── favicon.ico
 ├── src
 |   |── components
-|   |   |── MacroCalculator.js
+|   |    └── MacroCalculator.js
 │   ├── pages
 │   │   ├── _app.js
 |   |   |── _document.js
@@ -100,7 +100,7 @@ macro-calculator
 │   │   └── api        
 |   |       └── hello.js
 │   └── styles
-│       └── globals.css
+│   |    └── globals.css
 ├── eslint.config.mjs
 ├── jsconfig.json
 ├── LICENSE
