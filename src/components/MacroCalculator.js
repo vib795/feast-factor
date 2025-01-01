@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Analytics } from "@vercel/analytics/react"
 
 const calculateBMR = (weight, weightUnit, heightUnit, heightCm, heightFeet, heightInches, age) => {
   // Convert weight to pounds with higher precision
