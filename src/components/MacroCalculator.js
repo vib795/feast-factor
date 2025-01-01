@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
-const calculateBMR = (weight, weightUnit, heightUnit, heightCm, heightFeet, heightInches, age) => {
+const calculateBMR = (weight, weightUnit, heightUnit, heightCm, heightFeet, heightInches, age, gender) => {
   // Convert weight to pounds with higher precision
   const weightLbs = weightUnit === 'kg' ? weight * 2.20462262185 : parseFloat(weight);
   
@@ -14,9 +14,12 @@ const calculateBMR = (weight, weightUnit, heightUnit, heightCm, heightFeet, heig
     heightInchesTotal = (parseFloat(heightFeet) * 12) + (parseFloat(heightInches) || 0);
   }
   
-  // Harris-Benedict BMR Formula with exact coefficients
-  const bmr = 66 + (6.23 * weightLbs) + (12.7 * heightInchesTotal) - (6.8 * age);
-  return bmr;
+  // Gender-specific Harris-Benedict BMR Formula with exact coefficients
+  if (gender === 'male') {
+    return 66.473 + (6.23762 * weightLbs) + (12.7084 * heightInchesTotal) - (6.755 * age);
+  } else {
+    return 655.0955 + (4.33789 * weightLbs) + (4.69798 * heightInchesTotal) - (4.6756 * age);
+  }
 };
 
 const calculateMacros = ({
@@ -27,6 +30,7 @@ const calculateMacros = ({
   heightFeet,
   heightInches,
   age,
+  gender,
   activityLevel,
   goal,
   proteinPct,
@@ -34,7 +38,7 @@ const calculateMacros = ({
   fatPct
 }) => {
   // Calculate BMR
-  const bmr = calculateBMR(weight, weightUnit, heightUnit, heightCm, heightFeet, heightInches, age);
+  const bmr = calculateBMR(weight, weightUnit, heightUnit, heightCm, heightFeet, heightInches, age, gender);
   
   // Activity level multipliers
   const activityMultipliers = {
@@ -90,6 +94,7 @@ const MacroCalculator = () => {
     heightFeet: '',
     heightInches: '',
     age: '',
+    gender: 'male',
     activityLevel: 'sedentary',
     goal: 'lose_weight',
     proteinPct: 40,
@@ -255,6 +260,21 @@ const MacroCalculator = () => {
             </div>
           </div>
 
+          {/* Gender Selection */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Gender</label>
+            <select
+              name="gender"
+              value={formData.gender}
+              onChange={handleInputChange}
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 text-black"
+            >
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+
+
           {/* Age Input */}
           <div>
             <label className="block text-sm font-medium text-gray-700">Age</label>
@@ -328,7 +348,7 @@ const MacroCalculator = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm text-gray-600">Fat %</label>
+                <label className="block text-sm text-gray-600">Fats %</label>
                 <input
                   type="number"
                   name="fatPct"
@@ -373,7 +393,7 @@ const MacroCalculator = () => {
                   <div className="text-sm text-black">{result.carbsPct}%</div>
                 </div>
                 <div className="text-center p-4 bg-yellow-100 rounded-lg shadow">
-                  <div className="text-sm text-black">Fat</div>
+                  <div className="text-sm text-black">Fats</div>
                   <div className="mt-1 text-xl font-bold text-black">{result.fat}g</div>
                   <div className="text-sm text-black">{result.fatPct}%</div>
                 </div>
