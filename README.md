@@ -1,6 +1,6 @@
-# Macro Calculator
+# Feast Factor - A Macro Calculator
 
-Welcome to the **Macro Calculator** project! This application helps users calculate their macronutrient requirements (proteins, carbs, and fats) based on their personal information and fitness goals. Built using **Next.js**, this tool offers a clean, responsive interface and is easy to set up and customize.
+Welcome to the **Feast Factor - A Macro Calculator** project! This application helps users calculate their macronutrient requirements (proteins, carbs, and fats) based on their personal information and fitness goals. Built using **Next.js**, this tool offers a clean, responsive interface and is easy to set up and customize.
 
 ## Live Demo
 
