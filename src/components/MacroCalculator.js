@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const calculateBMR = (weight, weightUnit, heightUnit, heightCm, heightFeet, heightInches, age) => {
   // Convert weight to pounds with higher precision
@@ -162,6 +163,7 @@ const MacroCalculator = () => {
 
   return (
     <div className="min-h-screen bg-black py-12 px-4 sm:px-6 lg:px-8">
+      <SpeedInsights />
       <Analytics />
       <div className="max-w-md mx-auto bg-white rounded-3xl shadow-lg overflow-hidden p-8">
         <h1 className="text-3xl font-bold text-black text-center mb-2">Daily Macro Calculator</h1>
