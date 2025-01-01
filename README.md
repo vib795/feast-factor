@@ -153,4 +153,10 @@ For questions or feedback, feel free to open an issue on GitHub or reach out via
 
 ---
 
+## Disclaimer
+I’m not a licensed dietitian or medical professional, and this calculator is provided purely for informational and educational purposes. Always consult a qualified healthcare provider or registered dietitian before making significant changes to your diet or exercise routine. Use of this calculator is at your own risk, and I assume no liability for any decisions you make based on the results.
+
+---
+
+
 **Thank you for using the Macro Calculator!** Feel free to star the repo if you found it helpful, and share it with anyone who might benefit from a straightforward macro-tracking tool.
