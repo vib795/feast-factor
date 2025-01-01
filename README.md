@@ -5,7 +5,7 @@ Welcome to the **Macro Calculator** project! This application helps users calcul
 ## Live Demo
 
 Check out the live, deployed version here:
-[Weight Loss Macro Calculator](https://weight-loss-macro.vercel.app/)
+[Feast Factor](https://www.feastfactor.xyz/)
 
 ## Table of Contents
 1. [Features](#features)
