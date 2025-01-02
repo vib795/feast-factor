@@ -166,6 +166,24 @@ const MacroCalculator = () => {
     }));
   };
 
+  const getMacroRecommendation = (gender, goal) => {
+    const recommendations = {
+      male: {
+        lose_weight: { protein: 30, carbs: 40, fat: 30 },
+        gain_weight: { protein: "20-30", carbs: "50-60", fat: "20-30" },
+        maintain: { protein: "25-30", carbs: "55-60", fat: "15-20" }
+      },
+      female: {
+        lose_weight: { protein: "25-35", carbs: "40-50", fat: "20-30" },
+        gain_weight: { protein: "25-35", carbs: "45-55", fat: "20-30" },
+        maintain: { protein: "25-30", carbs: "50-55", fat: "20-25" }
+      }
+    };
+    
+    return recommendations[gender][goal];
+  };
+
+
   return (
     <div className="min-h-screen bg-black py-1 px-4 sm:px-6 lg:px-8">
       <SpeedInsights />
@@ -360,9 +378,41 @@ const MacroCalculator = () => {
               </div>
             </div>
             <p id="macro-warning" className="mt-2 text-sm text-red-600"></p>
-            <p className="mt-2 text-sm text-gray-600">
+            {/* <p className="mt-2 text-sm text-gray-600">
               Recommended split for weight loss: 40% protein, 40% carbs, 20% fat. Higher protein helps preserve muscle mass while in a caloric deficit.
-            </p>
+            </p> */}
+            <div className="mt-4 bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500 shadow-sm">
+              {formData.gender && formData.goal && (
+                <>
+                  <p className="font-bold text-purple-800 text-lg mb-2">
+                    💪 Recommended Macros for {formData.gender === 'male' ? 'Men' : 'Women'} - {formData.goal.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}:
+                  </p>
+                  <div className="grid grid-cols-3 gap-2 mb-2">
+                    <div className="text-center p-2 bg-purple-100 rounded">
+                      <p className="text-purple-700 font-semibold">Protein</p>
+                      <p className="text-purple-900 font-bold text-lg">
+                        {getMacroRecommendation(formData.gender, formData.goal).protein}%
+                      </p>
+                    </div>
+                    <div className="text-center p-2 bg-purple-100 rounded">
+                      <p className="text-purple-700 font-semibold">Carbs</p>
+                      <p className="text-purple-900 font-bold text-lg">
+                        {getMacroRecommendation(formData.gender, formData.goal).carbs}%
+                      </p>
+                    </div>
+                    <div className="text-center p-2 bg-purple-100 rounded">
+                      <p className="text-purple-700 font-semibold">Fat</p>
+                      <p className="text-purple-900 font-bold text-lg">
+                        {getMacroRecommendation(formData.gender, formData.goal).fat}%
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-purple-600 text-sm italic mt-2">
+                    💡 Tip: For ranges, select a value within the recommended range based on your preferences and activity level.
+                  </p>
+                </>
+              )}
+            </div>
           </div>
 
           <button
