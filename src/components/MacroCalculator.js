@@ -207,13 +207,9 @@ const MacroCalculator = () => {
                 </p>
               </div>
             </div>
-            {(typeof getMacroRecommendation(gender, goal).protein === 'string' ||
-            typeof getMacroRecommendation(gender, goal).carbs === 'string' ||
-            typeof getMacroRecommendation(gender, goal).fat === 'string') && (
-              <p className="text-purple-600 text-sm italic mt-3">
-                💡 Select a value within the recommended range based on your activity level
-              </p>
-            )}
+            <p className="text-purple-600 text-sm italic mt-3">
+              💡 Select a value within the recommended range based on your activity level
+            </p>
           </div>
         )}
         
@@ -338,7 +334,7 @@ const MacroCalculator = () => {
                     name="heightCm"
                     value={formData.heightCm}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 rounded-md border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
+                    className="w-full text-black px-3 py-2 rounded-md border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
                     placeholder="Enter height in cm"
                     required={formData.heightUnit === 'cm'}
                   />
