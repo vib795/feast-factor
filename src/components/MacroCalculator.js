@@ -167,7 +167,7 @@ const MacroCalculator = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-black py-1 px-4 sm:px-6 lg:px-8">
       <SpeedInsights />
       <Analytics />
       <div className="max-w-md mx-auto bg-white rounded-3xl shadow-lg overflow-hidden p-8">
